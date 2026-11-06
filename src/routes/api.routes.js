@@ -1,8 +1,11 @@
 import express from "express";
 
 import BukuController from "../controllers/buku.controller.js";
+import { logMiddleware } from '../middleware/log.middleware.js';
 
 const router = express.Router();
+
+router.use(logMiddleware) 
 
 router.get("/buku", BukuController.index);
 router.get("/buku/:id", BukuController.show);
